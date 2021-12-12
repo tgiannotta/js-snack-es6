@@ -1,120 +1,145 @@
-/* Snack 1
- ------------------------------------------------------------------------------
-Creare un array di oggetti:
-Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. */
+/* Snack2
+---------------------------------------------------------------------------------------
+ Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+     Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0. */
 
-const elencoBici = [
+const campionatoItaliano = [
     {
-        nome: 'Bici da città',
-        peso: 15
+        nome: 'Atalanta',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Mountain bike',
-        peso: 14.5,
+        nome: 'Udinese',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici da corsa',
-        peso: 6.5,
+        nome: 'Venezia',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici da cicloturismo',
-        peso: 14,
+        nome: 'Spezia',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici ibrida',
-        peso: 15.4,
+        nome: 'Sassuolo',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici a scatto fisso',
-        peso: 15.3,
+        nome: 'Sampdoria',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici pieghevole',
-        peso: 12,
+        nome: 'Torino',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici da ciclocross',
-        peso: 12.4,
+        nome: 'Salernitana',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Gravel bike',
-        peso: 10.5
+        nome: 'Roma',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Fat bike',
-        peso: 15.6
+        nome: 'Napoli',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Downhill',
-        peso: 18
+        nome: 'Milan',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bmx',
-        peso: 9.5
+        nome: 'Lazio',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici per bambini',
-        peso: 10.2
+        nome: 'Juventus',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici senza pedali',
-        peso: 7
+        nome: 'Inter',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici elettrica',
-        peso: 21
+        nome: 'Genoa',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Minibici',
-        peso: 16.3
+        nome: 'Fiorentina',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Cargo bike',
-        peso: 30.7
+        nome: 'Empoli',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Bici reclinata',
-        peso: 13
+        nome: 'Verona',
+        punti: 0,
+        falli: 0,
     },
     {
-        nome: 'Tandem',
-        peso: 20
+        nome: 'Cagliari',
+        punti: 0,
+        falli: 0,
     },
-    
+    {
+        nome: 'Bologna',
+        punti: 0,
+        falli: 0,
+    }
 ]
 
 
-/* Stampare a schermo la bici con peso minore utilizzando destructuring e template literal nel DOM */
-
-/* Stampiamo prima tutte le biciclette e il loro peso */
-let elencoBiciHTML = document.getElementById('bici-container')
-let pesoBikeDefault = elencoBici[0]
 
 
-for(let i = 0; i < elencoBici.length; i++){
-    thisBike = elencoBici[i]
-    
-    let singlebikeHTML = `
-    <ul>
-          <li>${thisBike.nome} Di peso: ${thisBike.peso}kg</li>
-      </ul>
-    `
-    elencoBiciHTML.innerHTML += singlebikeHTML
+/* Prima di tutto creiamo una funzione che  genererà i numeri random */
 
 
-    if(thisBike.peso < pesoBikeDefault.peso){
-      pesoBikeDefault = thisBike;
-    }
-   
-    
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
+/* Generare numeri random al posto degli 0 nelle proprietà Punti fatti e falli subiti. 
+Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console. */
+  let newCampionato = []
+
+for(let i = 0; i < campionatoItaliano.length; i++){
+    thisTeam = campionatoItaliano[i]
+    thisTeam.punti = getRndInteger(12, 30);
+    thisTeam.falli = getRndInteger(0, 30)
+    newCampionato.push(thisTeam.nome, thisTeam.falli)
+
+
 }
-/* Stampiamo infine la bici PictureInPictureWindow piccola */
-let biciMinoreHTML = document.getElementById('bici-minore')
-let biciPiccolaHTML = `
-<h4>La bici che pesa di meno è: ${pesoBikeDefault.nome}</h4>
+console.log(newCampionato);
 
-`
-biciMinoreHTML.innerHTML = biciPiccolaHTML
+
+
+
+
+
+
+
+
+
+
 
 
 
