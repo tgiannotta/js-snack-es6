@@ -10,8 +10,8 @@ const myArray = ['Michele', 'Fabio', 'Roberto', 'Giovanni', 'Simone', 'Chiara']
 const min = 0;
 
 const max = 2;
-
-
+/* 
+Con filter */
 let rangeArray = myArray.filter((element, index, array) => {
     
     
@@ -19,4 +19,13 @@ let rangeArray = myArray.filter((element, index, array) => {
         return element
     }
 })
-console.log(rangeArray);
+
+/* 
+con foreach */
+const newArray = []
+myArray.forEach((element, index, array) => {
+    if(index >= min && index <= max ){
+        newArray.push(element)
+    }
+})
+console.log(newArray);
